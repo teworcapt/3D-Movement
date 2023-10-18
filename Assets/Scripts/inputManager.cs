@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     private PlayerControls playerControls;
     private Vector2 movementInput;
     public float verticalInput, horizontalInput, moveAmount;
+    public bool sprint_Input;
 
     private void OnEnable()
     {
@@ -15,6 +16,8 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerControls();
             //when we hit WASD, it records the movement to a variable
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.PlayerAction.Sprint.performed += i => sprint_Input = true;
+            playerControls.PlayerAction.Sprint.performed += i => sprint_Input = false;
         }
 
         playerControls.Enable();
@@ -31,8 +34,8 @@ public class InputManager : MonoBehaviour
     public void HandleAllInput()
     {
         HandleMovementInput();
+        HandleSprinting();
     }
-
 
     private void HandleMovementInput()
     {
@@ -41,6 +44,16 @@ public class InputManager : MonoBehaviour
 
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput+verticalInput));
         PlayerManager.Instance.playerAnimation.UpdateAnimatorValues(0, moveAmount);
+    }
+
+    private void HandleSprinting()
+    {
+        if (sprint_Input && moveAmount > 0.5) {
+        PlayerManager.Instance.isSprinting = true;
+        } else
+        {
+        PlayerManager.Instance.isSprinting = false;
+        }
     }
 }
 

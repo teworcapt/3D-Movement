@@ -23,6 +23,13 @@ public class PlayerManager : MonoBehaviour
     public float movementSpeed;
     [Range(0,50)]
     public float rotationSpeed;
+    public float sprintSpeed;
+    public float walkSpeed;
+
+    [Header("Actions Status")]
+    public bool isSprinting;
+    public bool isWalking;
+    public bool isJumping;
 
 
     private void Awake()

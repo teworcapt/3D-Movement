@@ -223,8 +223,8 @@ Transform:
   m_GameObject: {fileID: 322147771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7417, y: 1, z: 1.9129}
+  m_LocalPosition: {x: -0.1965, y: 0, z: 4.7218}
+  m_LocalScale: {x: 5.922553, y: 1, z: 7.0539703}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -471,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38728526, y: -0.30953276, z: 0.68445176, w: 0.5345329}
-  m_LocalPosition: {x: -3.88, y: -1.67, z: -2.12}
+  m_LocalPosition: {x: -4.62, y: 1.44, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -536,8 +536,13 @@ MonoBehaviour:
   inputManager: {fileID: 1327094803}
   playerLocomotion: {fileID: 1327094798}
   playerAnimation: {fileID: 1327094805}
-  movementSpeed: 10.4
+  movementSpeed: 3
   rotationSpeed: 2.1
+  sprintSpeed: 5
+  walkSpeed: 0
+  isSprinting: 0
+  isWalking: 0
+  isJumping: 0
 --- !u!4 &443453665
 Transform:
   m_ObjectHideFlags: 0
@@ -652,6 +657,7 @@ MonoBehaviour:
   verticalInput: 0
   horizontalInput: 0
   moveAmount: 0
+  sprint_Input: 0
 --- !u!114 &1206208039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,6 +987,7 @@ MonoBehaviour:
   verticalInput: 0
   horizontalInput: 0
   moveAmount: 0
+  sprint_Input: 0
 --- !u!95 &1327094804
 Animator:
   serializedVersion: 5
