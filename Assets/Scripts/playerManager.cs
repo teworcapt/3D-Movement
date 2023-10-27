@@ -31,7 +31,6 @@ public class PlayerManager : MonoBehaviour
     public bool isWalking;
     public bool isJumping;
 
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
